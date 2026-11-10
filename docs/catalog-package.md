@@ -45,10 +45,18 @@ payment/auth modules. See the [verification record](marketplace-verification-202
 for the actual outcome. All 16 checks passed, the security scan was safe, and
 there were zero warnings. This is not maintainer admission.
 
-The export must be put in a public Git repository before a catalog entry can
-pin its real 40-character commit SHA. That publication and the catalog PR have
-not happened; external publication remains deferred. A successful local
-validator is not maintainer approval or automatic catalog inclusion.
+The source is now published at [snuff12/hermes-sell](https://github.com/snuff12/hermes-sell).
+[Catalog PR #152641](https://github.com/NousResearch/hermes-agent/pull/152641)
+pins `03f1acee3187c62505ac45e8d987193381b7fa2a` (0.1.0). Public plugin validation
+and server CI passed. Installation of the exact public commit with
+`hermes plugins install snuff12/hermes-sell --ref 03f1acee3187c62505ac45e8d987193381b7fa2a --yes-deps --enable`
+also succeeded in a fresh disposable Hermes home.
+
+The [84-second English demo](https://github.com/snuff12/hermes-sell/releases/tag/v0.1.0)
+and its captions are public. This is a catalog application, not maintainer
+approval or automatic inclusion. X posting and the hackathon form are tracked
+separately in the [submission status](submission-2026-11-10.md). Public source
+publication does not expose the local servers; external hosting remains deferred.
 
 ## References
 

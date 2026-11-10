@@ -1,4 +1,11 @@
-# Implementation status · 2026-11-07
+# Implementation status · Local checkpoint 2026-11-07, publication update 2026-11-10
+
+Public source publication is complete. [The plugin](https://github.com/snuff12/hermes-sell)
+and [server source](https://github.com/snuff12/hermes-sell-server) have public CI,
+and [catalog PR #152641](https://github.com/NousResearch/hermes-agent/pull/152641)
+is open with a full SHA pin. An 84-second English working demo is available.
+Catalog acceptance and final hackathon form submission are separate states;
+see [submission status](submission-2026-11-10.md). Local server hosting remains private.
 
 Current checkpoint: **all three local outcomes have completed with actual model and testnet evidence**. The default simulation remains available. Mainnet is disabled. External hosting and Cloudflare Tunnel work are explicitly deferred by the user.
 
@@ -21,7 +28,8 @@ The [marketplace guide](marketplace.md) covers operation and local trust limits.
 The [catalog package guide](catalog-package.md) explains the source-only export,
 which excludes the developer provider-token importer. A native SDK launcher
 opens the browser workspaces; it is not an embedded wallet UI. The candidate
-has not been installed into the user's personal Hermes profile or published.
+has not been installed into the user's personal Hermes profile. Its published
+source has been installed successfully in a fresh disposable Hermes home.
 
 ## Implemented
 

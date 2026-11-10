@@ -2,6 +2,8 @@
 
 [Install the Hermes plugin](https://github.com/snuff12/hermes-sell) · [Run the local server](docs/quickstart.md)
 
+[84-second working demo](https://github.com/snuff12/hermes-sell/releases/download/v0.1.0/hermes-sell-demo.mp4) · [Catalog submission PR](https://github.com/NousResearch/hermes-agent/pull/152641)
+
 **Turn existing Hermes skills into paid APIs, with separate seller and buyer processes.** The default command runs a local simulation. A separate Base Sepolia path now connects wallet authentication, isolated Hermes execution, payment authorization, and chain reconciliation. All three local outcomes have now been exercised: a real Hermes draft and execution test, an automated browser purchase with a testnet receipt, and an independent Hermes buyer that used its purchased result. See [implementation status](docs/status.md) for the evidence and test-wallet boundary.
 
 | Required outcome | Implemented path |
@@ -117,8 +119,9 @@ The Python suite has 273 passing tests. The browser suite has 38 passing tests, 
 This creates a standalone source tree with six agent tools and an optional
 Desktop SDK launcher for the default local workspaces. It excludes developer
 credential importers, runtime runners, private state, and compiled payloads.
-Draft generation uses the host `ctx.llm` API. The source candidate is not
-published or accepted into the official catalog; see [submission preparation](docs/catalog-package.md).
+Draft generation uses the host `ctx.llm` API. The plugin source is published
+separately and its catalog PR is open. Maintainer acceptance is pending;
+see [submission preparation](docs/catalog-package.md).
 
 Browser tests use macOS Chrome by default. Set `CHROME_PATH` to a Chromium executable on other systems. Python dependencies are pinned in `requirements.lock`; web dependencies are locked in `web/package-lock.json`.
 
