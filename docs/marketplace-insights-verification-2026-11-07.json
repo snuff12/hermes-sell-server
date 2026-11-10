@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-07",
+  "story": "A seller checks its local API, publishes a tested service, tracks usage and confirmed payments, and receives a purchase-backed review.",
+  "scope": "Configured loopback sellers only; external hosting and open Internet enrollment remain deferred.",
+  "automated": {
+    "python_tests_passed": 273,
+    "browser_tests_passed": 38,
+    "production_build": "passed",
+    "web_dependency_audit_findings": 0,
+    "english_content_check": "passed"
+  },
+  "coverage": [
+    "Owner authentication for private analytics",
+    "Settlement timestamp rather than quote timestamp",
+    "Pending and unknown amounts excluded from settled volume",
+    "Durable execution counting despite retries",
+    "Cross-seller buyer spending and shared budget",
+    "Exact integer formatting beyond JavaScript safe integers",
+    "Public usage sharing defaults off and respects recovery lock",
+    "Configured-origin registration only",
+    "Seller Ed25519 purchase attestation",
+    "Buyer EIP-191 review signature and independent chain receipt check",
+    "Wrong wallet, proof tampering, expired and changed review rejection",
+    "One vote per buyer, edits and identical retry handling",
+    "Old challenge cannot overwrite newer review",
+    "Receipt cannot review a different listing",
+    "Simulation/testnet review mode isolation",
+    "Gateway uses original seller/session and redacts malformed upstream data",
+    "Mobile registration, reviews and analytics at 360px"
+  ],
+  "live": {
+    "checked_at": "2026-11-07T07:38:49.669Z",
+    "original_order": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+    "seller_settled_amount": "200000",
+    "buyer_settled_amount": "100000",
+    "login_signatures": 1,
+    "review_signatures": 1,
+    "payment_signatures": 0,
+    "reviews": {
+      "average": 5,
+      "count": 1,
+      "verified_count": 1
+    },
+    "verification": "chain_and_seller",
+    "browser_errors": [],
+    "new_purchases": 0
+  },
+  "unchanged_seller_side_effects": {
+    "orders": 2,
+    "dispatch_intent": 2,
+    "settlement_intent": 2,
+    "additional_runs": 0,
+    "additional_payments": 0
+  },
+  "source_candidate": {
+    "export": ".state/catalog-candidate-v4",
+    "hermes_version": "0.23.0",
+    "official_validator_checks_passed": 16,
+    "warnings": [],
+    "dependency_install": "passed against installed Hermes core constraints",
+    "published": false
+  },
+  "privacy": {
+    "public_usage": "Owner opt-in; aggregates labeled seller-reported",
+    "reviews": "Short reviewer identifier, purchased revision, rating, comment, verification mode and time",
+    "directory_excludes": [
+      "customer input",
+      "execution result",
+      "bearer token",
+      "raw wallet signature",
+      "provider credential"
+    ]
+  },
+  "limits": [
+    "Live wallet check uses an automated EIP-1193 bridge, not a human-operated wallet extension",
+    "Reviews prove purchase, not independence or quality; wallet collusion remains possible",
+    "Purchase-to-service association trusts the seller attestation; the transfer is checked independently",
+    "No moderation or dispute workflow",
+    "Usage is derived from local durable ledgers; a restored snapshot can be incomplete",
+    "Settled volume is gross testnet USDC, not fiat revenue or profit"
+  ]
+}

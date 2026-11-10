@@ -1,0 +1,8 @@
+**
+!src/
+!src/hermes_sell/
+!src/hermes_sell/runtime_container.py
+!deployment/
+!deployment/hermes/
+!deployment/hermes/Dockerfile
+!deployment/hermes/entrypoint.py

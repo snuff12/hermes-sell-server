@@ -1,0 +1,58 @@
+{
+  "slug": "release-summary",
+  "name": "Release summary",
+  "description": "Turn a list of changes into clear release notes for users.",
+  "amount": "100000",
+  "pay_to": "0x1111111111111111111111111111111111111111",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "changes"
+    ],
+    "properties": {
+      "changes": {
+        "type": "string",
+        "title": "Changes",
+        "minLength": 1,
+        "maxLength": 16000
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "summary",
+      "findings"
+    ],
+    "properties": {
+      "summary": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "findings": {
+        "type": "array",
+        "maxItems": 20,
+        "items": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "changes": "Fixed login errors and made order lookups faster."
+      },
+      "output": {
+        "summary": "Improved login reliability and order lookup speed.",
+        "findings": [
+          "Fixed errors during login.",
+          "Order history now loads faster."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "slug": "diff-review",
+  "name": "Diff review",
+  "description": "Provide a shareable code diff and project rules to receive a review summary and actionable findings.",
+  "amount": "100000",
+  "pay_to": "0x1111111111111111111111111111111111111111",
+  "input_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "diff",
+      "context"
+    ],
+    "properties": {
+      "diff": {
+        "type": "string",
+        "title": "Diff to review",
+        "description": "Code changes that are safe to share",
+        "minLength": 1,
+        "maxLength": 16000
+      },
+      "context": {
+        "type": "string",
+        "title": "Review criteria",
+        "maxLength": 3000
+      }
+    }
+  },
+  "output_schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "summary",
+      "findings"
+    ],
+    "properties": {
+      "summary": {
+        "type": "string",
+        "maxLength": 3000
+      },
+      "findings": {
+        "type": "array",
+        "maxItems": 20,
+        "items": {
+          "type": "string",
+          "maxLength": 1000
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "input": {
+        "diff": "+ console.log(token)",
+        "context": "Do not log authentication credentials."
+      },
+      "output": {
+        "summary": "Check whether sensitive values could be exposed in logs.",
+        "findings": [
+          "Remove the line that logs the token or redact sensitive values."
+        ]
+      }
+    }
+  ]
+}

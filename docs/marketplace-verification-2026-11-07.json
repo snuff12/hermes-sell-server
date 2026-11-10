@@ -1,0 +1,198 @@
+{
+  "verified_at": "2026-11-07T05:40:54.981927+00:00",
+  "scope": "Local shared directory and cross-seller commerce; no external publication",
+  "checks": {
+    "python_tests": 249,
+    "browser_tests": 34,
+    "production_build": "passed",
+    "english_content": "passed",
+    "web_vulnerabilities": 0,
+    "python_dependencies": "no broken requirements"
+  },
+  "live_directory": {
+    "listings": [
+      {
+        "origin": "http://127.0.0.1:8765",
+        "listing_id": "a75d964b914a628d2b4ebc8dd4654b1085313d8448a0fd09bd4f9a5d72424511",
+        "mode": "simulation",
+        "name": "Diff review"
+      },
+      {
+        "origin": "http://127.0.0.1:8765",
+        "listing_id": "af83f3bd18114b5e6a0f8f816de0ecfadd9133cf1c37b2f8dbe24dcd70ac35fc",
+        "mode": "simulation",
+        "name": "Release summary"
+      },
+      {
+        "origin": "http://127.0.0.1:8785",
+        "listing_id": "ea940741118c82d69814067f48cba3b4ee9e6218788cb461863756a0c2f96c82",
+        "mode": "testnet",
+        "name": "Release Note Summary"
+      },
+      {
+        "origin": "http://127.0.0.1:8785",
+        "listing_id": "d6a839ffd22f9598d4017a9c884effd9445b685a62b6e06e5418aa41e966bcb3",
+        "mode": "testnet",
+        "name": "Public Diff Review"
+      }
+    ],
+    "seller_count": 2,
+    "listing_count": 4,
+    "new_model_runs": 0,
+    "new_payments": 0
+  },
+  "live_plugin_handlers": {
+    "search_count": 1,
+    "tool_count": 6,
+    "saved_purchase_routes_to_original_origin": true,
+    "configured_default_origin": "http://127.0.0.1:8765",
+    "original_origin": "http://127.0.0.1:8785",
+    "purchase_status": "needs_wallet_connection"
+  },
+  "cross_seller_tests": {
+    "seller_engines": 2,
+    "wallet_authentication": "real EIP-191 signatures with local transports",
+    "approval_binding": "cross-seller signature rejected",
+    "shared_budget": "second 0.60 USDC approval rejected at 1 USDC budget",
+    "selected_seller_settlements": 1,
+    "other_seller_settlements": 0,
+    "chain_scope": "controlled fixture; no new blockchain transaction"
+  },
+  "catalog_candidate": {
+    "files": {
+      "plugin.yaml": "939e36f98567ba6e9ae6fb8b30b9f02f2069c59fd27bf69230da9f05e2665ee7",
+      "pyproject.toml": "3ff896f6a191b8f1f1d72173934819a6bf879f5aef747aec52b5cf991a4cd338",
+      "__init__.py": "9abbbc06a2ff1b5b1a6e843bcd7c5841ec34ce49fb3b2ba1021cca86a4bc77ba",
+      "README.md": "c83cca3752a8ec9a2e9cac473d0b6161f94b117383d0df9ac7fd6875b2f19107",
+      "desktop/plugin.js": "19846cabfaaaf7b0b86c20661d114463a2d4f6ed3a944d0823642ee65438c61e",
+      "src/hermes_sell/buyer.py": "0143a24f40d6cb35ffde46e09b16eab54cd9b430df36e16e4e184483d6610dbb",
+      "src/hermes_sell/discovery.py": "92b87146c3e166c49ac079978c3e25216aee6a7d3309b683fe11b2a5ed8a6267",
+      "src/hermes_sell/payment_signing.py": "8defa2f9a2b766a6f7807b62f4f81990f11532c501dc81af22f5a2aed96edf4f",
+      "src/hermes_sell/__init__.py": "0b47876befab09b382b6c8239d88ae0001d0728a38ad54e5a3024206756d0412",
+      "src/hermes_sell/authoring.py": "c52cd52716e372ece52a44bd1d7098465ab55e7a0e12bd647f053ab0c3823c09",
+      "src/hermes_sell/vault.py": "7415401eab08fa92ef915523a7c87c672a6a88b33f0a699e73133e511c3409db",
+      "src/hermes_sell/drafts.py": "8411433da18c2e5dbe496a46549b320129c05837e6c3b036fbda1dedaafbefb1",
+      "src/hermes_sell/contracts.py": "96433c4ea1b7ba7c74054f210f937a019a3971509d429d729567757259a27124",
+      "src/hermes_sell/plugin.py": "cf806c25772b043c1d60f69ab5c88ef86b6f68c9702d79ae490dbca9651a4446",
+      "src/hermes_sell/x402_adapter.py": "51ea2aa1b59d17765b105b8a9b0139c73029ed43557cd115b4fabd734cf4316e",
+      "src/hermes_sell/wallet_auth.py": "49c1a61946a2485ec9d2e16cbcd89a0ee4eb707f7fcb40e1511bc76d0db62371",
+      "skills/buy-service/SKILL.md": "27a0e0d768b9dcb0b428584f0cd4476097e47f058312e006e4a8ddcdad7818e3"
+    },
+    "developer_auth_helpers_included": false,
+    "published": false,
+    "hermes_version": "0.23.0",
+    "validation": {
+      "ok": true,
+      "checks": [
+        {
+          "name": "manifest",
+          "ok": true,
+          "detail": "plugin.yaml parses"
+        },
+        {
+          "name": "manifest fields",
+          "ok": true,
+          "detail": "name, version, description present"
+        },
+        {
+          "name": "requires_hermes",
+          "ok": true,
+          "detail": "spec '>=0.22.7' parses"
+        },
+        {
+          "name": "config schema",
+          "ok": true,
+          "detail": "shape valid"
+        },
+        {
+          "name": "requires_env",
+          "ok": true,
+          "detail": "all entries UPPER_SNAKE"
+        },
+        {
+          "name": "oauth",
+          "ok": true,
+          "detail": "not declared"
+        },
+        {
+          "name": "loadable",
+          "ok": true,
+          "detail": "entry: __init__.py, desktop/plugin.js"
+        },
+        {
+          "name": "python dependencies",
+          "ok": true,
+          "detail": "4 requirements from pyproject"
+        },
+        {
+          "name": "capability probe",
+          "ok": true,
+          "detail": "register() ran in isolation"
+        },
+        {
+          "name": "declared tools",
+          "ok": true,
+          "detail": "matches registrations"
+        },
+        {
+          "name": "declared hooks",
+          "ok": true,
+          "detail": "matches registrations"
+        },
+        {
+          "name": "declared middleware",
+          "ok": true,
+          "detail": "matches registrations"
+        },
+        {
+          "name": "built-in tool collisions",
+          "ok": true,
+          "detail": "no collisions"
+        },
+        {
+          "name": "security scan",
+          "ok": true,
+          "detail": "safe"
+        },
+        {
+          "name": "no core override",
+          "ok": true,
+          "detail": "no runtime rebinds of Hermes core"
+        },
+        {
+          "name": "desktop surface",
+          "ok": true,
+          "detail": "stays inside the plugin SDK surface"
+        }
+      ],
+      "warnings": [],
+      "isolation": {
+        "verdict": "host",
+        "host_ready": true,
+        "reasons": [],
+        "notes": [],
+        "ctx_methods": [
+          "register_skill",
+          "register_tool"
+        ]
+      },
+      "dependency_install": "passed against installed Hermes core constraints",
+      "runtime_imports": [
+        "x402",
+        "eth_account",
+        "jsonschema",
+        "cryptography"
+      ]
+    }
+  },
+  "existing_paid_order_intents": {
+    "dispatch_intent": 2,
+    "settlement_intent": 2
+  },
+  "limits": [
+    "Directory registration is limited to configured loopback sellers; public federation deferred",
+    "Desktop SDK launcher opens browser workspaces; not installed into the personal Hermes profile",
+    "Catalog candidate passed local checks, not maintainer admission",
+    "Two-seller wallet/payment tests use controlled transports; earlier live testnet receipts are retained separately"
+  ]
+}

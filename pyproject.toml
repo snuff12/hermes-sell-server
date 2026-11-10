@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-sell"
+version = "0.1.0"
+description = "Turn a frozen Hermes skill into a paid, asynchronous service"
+requires-python = ">=3.14,<3.15"
+dependencies = [
+  "fastapi==0.162.0", "uvicorn==0.54.0", "httpx==0.28.1",
+  "jsonschema==4.26.0", "cryptography==50.0.2",
+]
+
+[project.optional-dependencies]
+payments = ["x402[evm,httpx,extensions]==2.27.0"]
+test = ["pytest==9.2.0", "pytest-asyncio==1.4.1.post1"]
+
+[project.scripts]
+hermes-sell = "hermes_sell.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

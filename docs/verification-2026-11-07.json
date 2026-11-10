@@ -1,0 +1,177 @@
+{
+  "verified_at": "2026-11-07T00:44:42.971030+00:00",
+  "scope": "Local Base Sepolia integration; no public hosting",
+  "runtime": {
+    "hermes_version": "0.23.0",
+    "source_commit": "2bd378ed1b8d6bf2192cb26e0a55ff3091e6bd19",
+    "base_image_digest": "sha256:3eadce07c6cc35599ebacfa1f7d8ee06edce6374b9d07e379d6ec825ddaa7534",
+    "configured_provider": "openai-codex",
+    "configured_model": "gpt-6.1-sol",
+    "uid": 10000,
+    "root_filesystem": "read-only",
+    "host_mounts": false,
+    "toolsets": [],
+    "credential_scope": "One existing access token; no refresh token or personal home"
+  },
+  "plugin_doctor": {
+    "ok": true,
+    "tools": [
+      "service_draft",
+      "service_inspect",
+      "service_purchase",
+      "service_quote",
+      "service_status"
+    ],
+    "findings": []
+  },
+  "authoring": [
+    {
+      "skill": "diff-review",
+      "slug": "diff-review",
+      "revision": "ed452a0bd9524b602b8dac4d2ac4f408f618a67aa1bdc4f4a6d41a0c2d198b0f",
+      "report": {
+        "id": "0ae775ef-63e0-48d7-b4a0-de6917b54b4b",
+        "revision": "ed452a0bd9524b602b8dac4d2ac4f408f618a67aa1bdc4f4a6d41a0c2d198b0f",
+        "mode": "hermes",
+        "passed": true,
+        "cases": [
+          {
+            "passed": true,
+            "output": {
+              "findings": [
+                "Remove console.log(token): it logs an authentication token, violating the rule against logging authentication credentials."
+              ],
+              "summary": "The diff exposes an authentication credential in logs."
+            },
+            "seconds": 2.917
+          }
+        ],
+        "semantic_review": "owner_required"
+      }
+    },
+    {
+      "skill": "release-summary",
+      "slug": "release-summary",
+      "revision": "b17bc5408c4d5ed6d0eaa57ea8664165cd98c669e57d67c313ecbe28b9b31311",
+      "report": {
+        "id": "40666c0e-d0c1-4fc8-bef7-33245c009bc2",
+        "revision": "b17bc5408c4d5ed6d0eaa57ea8664165cd98c669e57d67c313ecbe28b9b31311",
+        "mode": "hermes",
+        "passed": true,
+        "cases": [
+          {
+            "passed": true,
+            "output": {
+              "summary": "Fixed login errors and improved order lookup speed.",
+              "findings": [
+                "Fixed errors during login.",
+                "Made order lookups faster."
+              ]
+            },
+            "seconds": 2.503
+          }
+        ],
+        "semantic_review": "owner_required"
+      }
+    }
+  ],
+  "browser_purchase": {
+    "method": "Automated Chrome with an EIP-1193 bridge; private test key stayed in the Node process",
+    "login_signatures": 2,
+    "payment_signatures": 1,
+    "refresh_recovered_without_repayment": true,
+    "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+    "revision": "ed452a0bd9524b602b8dac4d2ac4f408f618a67aa1bdc4f4a6d41a0c2d198b0f",
+    "result": {
+      "findings": [
+        "Remove console.log(token); logging an authentication token exposes credentials and violates the contribution rule."
+      ],
+      "summary": "The diff logs an authentication credential and must be changed."
+    },
+    "receipt": {
+      "amount": "100000",
+      "block_hash": "0x16e5f20b9381fa89e319697b851f358d04762273b89f59747c935f74caff7781",
+      "block_number": 55450739,
+      "confirmation_policy": "testnet-l2-depth-2",
+      "confirmations": 3,
+      "network": "eip155:84532",
+      "payer": "0x3f1458bc7b70e43837ec2a723272e233998d56ad",
+      "success": true,
+      "transaction": "0x238c81836b7db4e45bf6bc3be1d1203f966d6209ba69901cfa3e41596f8adeab",
+      "verified_by": "receipt-transfer-authorization"
+    }
+  },
+  "hermes_purchase": {
+    "purchase_id": "694a7cbe-e3e5-4b3e-bb0b-9c1ebd65e57b",
+    "order_id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+    "approval_method": "Separate local browser wallet gateway; one EIP-712 signature",
+    "result": {
+      "findings": [
+        "The added logger.info(sessionToken) logs an authentication credential. Remove it and log a non-sensitive event such as \"Session established\" instead."
+      ],
+      "summary": "The diff violates the rule against logging authentication credentials."
+    },
+    "receipt": {
+      "amount": "100000",
+      "block_hash": "0xf800fc91e685dcfb6e733e2da18eda1ba2f81d9b9ba4e758fae3fdd51ba25ee6",
+      "block_number": 55451317,
+      "confirmation_policy": "testnet-l2-depth-2",
+      "confirmations": 3,
+      "network": "eip155:84532",
+      "payer": "0xbd2f094ad99f2a6bd0f1ea2cdb2e5a94229554aa",
+      "success": true,
+      "transaction": "0xb320429f049ca105a3e87c23d757ae5a00054388f76036f65aa557dc509172ef",
+      "verified_by": "receipt-transfer-authorization"
+    },
+    "agent": {
+      "host": "Hermes",
+      "role": "buyer",
+      "tools_called": [
+        "service_purchase",
+        "service_status",
+        "service_status"
+      ],
+      "final_response": "Stored approval was confirmed, and the existing purchase settled on testnet.\n\nReview finding: logger.info(sessionToken) exposes an authentication credential and violates the no-credential-logging rule. Remove it and log a non-sensitive event instead, such as:\n\n    logger.info(\"Session established\")",
+      "completed": true,
+      "failed": false,
+      "partial": false,
+      "interrupted": false
+    }
+  },
+  "confirmation_policy": "Two Base Sepolia L2 blocks; soft confirmation, not L1 finality",
+  "limits": [
+    "Mainnet disabled",
+    "External hosting deferred by user",
+    "Manual browser-extension acceptance not exercised",
+    "Forced-crash and old-backup scenarios covered by local regression tests, not by this real-chain run"
+  ],
+  "normal_restart": {
+    "passed": true,
+    "buyer_retrieved_original_result": true,
+    "orders": [
+      {
+        "id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+        "run_id": "run_c169c615810a4836baa99a6fc952c467",
+        "execution": "result_ready",
+        "payment": "settled"
+      },
+      {
+        "id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+        "run_id": "run_cd36179ea7554b6f8022b1908a2241db",
+        "execution": "result_ready",
+        "payment": "settled"
+      }
+    ],
+    "dispatches": 2,
+    "settlement_attempts": 2,
+    "browser_recovered_original_result": true,
+    "browser_recovery_payment_signatures": 0
+  },
+  "checks": {
+    "python_tests": 185,
+    "browser_tests": 27,
+    "production_build": "passed",
+    "dependency_audit": "0 web vulnerabilities",
+    "python_dependencies": "no broken requirements"
+  }
+}

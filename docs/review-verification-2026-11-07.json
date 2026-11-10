@@ -1,0 +1,154 @@
+{
+  "reviewed_at": "2026-11-07T05:06:02.220890+00:00",
+  "base_commit": "88c71cbb2ad24da960270252bffa6b1df99b30b5",
+  "scope": "Local review and recovery verification; no public hosting or new payments",
+  "checks": {
+    "python_tests": 227,
+    "browser_tests": 30,
+    "production_build": "passed",
+    "english_content": "passed",
+    "web_advisories": 0,
+    "python_dependencies": "no broken requirements",
+    "interrupt_exit": 130
+  },
+  "python_advisory_check": {
+    "source": "PyPI version metadata vulnerability advisory feed",
+    "packages_checked": 67,
+    "findings": [],
+    "errors": []
+  },
+  "clean_source_install": {
+    "source_checkout_install": "passed",
+    "dependency_check": "passed",
+    "cli_help": "passed",
+    "testnet_initialize": "passed",
+    "web_build": "passed",
+    "private_configuration_created": true,
+    "python_version": "Python 3.14.6"
+  },
+  "admission_lookup": [
+    {
+      "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+      "run_id": "run_c169c615810a4836baa99a6fc952c467",
+      "read_only_identity_lookup": "passed",
+      "original_result_matches": true
+    },
+    {
+      "order_id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+      "run_id": "run_cd36179ea7554b6f8022b1908a2241db",
+      "read_only_identity_lookup": "passed",
+      "original_result_matches": true
+    }
+  ],
+  "recovery_faults": {
+    "scope": "Temporary ledger fault injection with actual Hermes and Base Sepolia reads",
+    "source_ledger_read_only": true,
+    "new_runs": 0,
+    "new_payments": 0,
+    "source_intents_unchanged": {
+      "dispatch_intent": 2,
+      "settlement_intent": 2
+    },
+    "cases": [
+      {
+        "fault": "lost_settlement_response",
+        "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+        "run_id": "run_c169c615810a4836baa99a6fc952c467",
+        "result_matches": true,
+        "transaction": "0x238c81836b7db4e45bf6bc3be1d1203f966d6209ba69901cfa3e41596f8adeab",
+        "payment": "settled",
+        "restore_lock_preserved": false
+      },
+      {
+        "fault": "lost_admission_response_in_backup",
+        "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+        "run_id": "run_c169c615810a4836baa99a6fc952c467",
+        "result_matches": true,
+        "transaction": "0x238c81836b7db4e45bf6bc3be1d1203f966d6209ba69901cfa3e41596f8adeab",
+        "payment": "settled",
+        "restore_lock_preserved": true
+      },
+      {
+        "fault": "pre_admission_backup",
+        "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+        "run_id": "run_c169c615810a4836baa99a6fc952c467",
+        "result_matches": true,
+        "transaction": "0x238c81836b7db4e45bf6bc3be1d1203f966d6209ba69901cfa3e41596f8adeab",
+        "payment": "settled",
+        "restore_lock_preserved": true
+      },
+      {
+        "fault": "lost_settlement_response",
+        "order_id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+        "run_id": "run_cd36179ea7554b6f8022b1908a2241db",
+        "result_matches": true,
+        "transaction": "0xb320429f049ca105a3e87c23d757ae5a00054388f76036f65aa557dc509172ef",
+        "payment": "settled",
+        "restore_lock_preserved": false
+      },
+      {
+        "fault": "lost_admission_response_in_backup",
+        "order_id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+        "run_id": "run_cd36179ea7554b6f8022b1908a2241db",
+        "result_matches": true,
+        "transaction": "0xb320429f049ca105a3e87c23d757ae5a00054388f76036f65aa557dc509172ef",
+        "payment": "settled",
+        "restore_lock_preserved": true
+      },
+      {
+        "fault": "pre_admission_backup",
+        "order_id": "2c56b5a2-fec7-441c-add4-091653e7f91a",
+        "run_id": "run_cd36179ea7554b6f8022b1908a2241db",
+        "result_matches": true,
+        "transaction": "0xb320429f049ca105a3e87c23d757ae5a00054388f76036f65aa557dc509172ef",
+        "payment": "settled",
+        "restore_lock_preserved": true
+      }
+    ]
+  },
+  "current_model_execution": {
+    "id": "f25813fa-281f-42c2-ade3-78d68c2ba16c",
+    "revision": "ed452a0bd9524b602b8dac4d2ac4f408f618a67aa1bdc4f4a6d41a0c2d198b0f",
+    "mode": "hermes",
+    "passed": true,
+    "cases": [
+      {
+        "passed": true,
+        "output": {
+          "findings": [
+            "Remove console.log(token); it logs an authentication credential, violating the supplied rule."
+          ],
+          "summary": "The diff exposes an authentication token in logs."
+        },
+        "seconds": 4.48
+      }
+    ],
+    "semantic_review": "owner_required"
+  },
+  "browser_recovery": {
+    "success": true,
+    "login_signatures": 1,
+    "payment_signatures": 0,
+    "order_id": "6832feb4-db66-49ad-8d48-f104ac4fdba1",
+    "payment": "settled",
+    "result_available": true
+  },
+  "independent_buyer_recovery": {
+    "status": "settled",
+    "purchase_id": "694a7cbe-e3e5-4b3e-bb0b-9c1ebd65e57b",
+    "result_available": true,
+    "login_signatures": 1,
+    "payment_signatures": 0
+  },
+  "final_order_intents": {
+    "dispatch_intent": 2,
+    "settlement_intent": 2
+  },
+  "limits": [
+    "Automated EIP-1193 signing, not human wallet-extension acceptance",
+    "Fault-injected ledger copies, not a live mid-settlement process kill",
+    "Restore lock is not automatically released",
+    "Pinned Hermes v0.23.0 ARM64 runtime; source checkout installation",
+    "Mainnet disabled; external hosting deferred"
+  ]
+}

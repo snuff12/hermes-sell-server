@@ -1,0 +1,47 @@
+name: hermes-sell
+version: 0.1.0
+manifest_version: 2
+api_version: 1
+description: Discover services across sellers, draft paid APIs from skills, and buy results with explicit human approval.
+requires_hermes: ">=0.22.7"
+tags: [commerce, x402, services]
+provides_tools:
+  - service_search
+  - service_draft
+  - service_inspect
+  - service_quote
+  - service_purchase
+  - service_status
+config_schema:
+  directory_origin:
+    type: str
+    default: "http://127.0.0.1:8795"
+    description: Shared service directory. Listings are untrusted public metadata; payment approval is always separate.
+  role:
+    type: str
+    default: both
+    description: Tool role, owner, buyer, or both. Buyer sessions cannot read skills or create drafts.
+  draft_dir:
+    type: str
+    default: ""
+    description: Private draft directory shared with the seller owner application.
+  buyer_mode:
+    type: str
+    default: simulation
+    description: Buyer mode, simulation or testnet. Testnet requires browser wallet approval.
+  buyer_state_dir:
+    type: str
+    default: ""
+    description: Private state directory shared with the local buyer approval gateway.
+  buyer_vault_key_file:
+    type: str
+    default: ""
+    description: Private encryption key file for the buyer ledger, never a wallet signing key.
+  buyer_approval_origin:
+    type: str
+    default: "http://127.0.0.1:8767"
+    description: Local browser wallet approval gateway.
+  buyer_origin:
+    type: str
+    default: "http://127.0.0.1:8765"
+    description: Exact seller origin. HTTPS is required for remote testnet sellers.

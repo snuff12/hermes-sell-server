@@ -1,0 +1,137 @@
+{
+  "note": "Expired, deterministic, unfunded test fixture. No chain transaction was sent. The signing key exists only in the Node test harness.",
+  "libraries": {
+    "x402": "2.30.0",
+    "viem": "2.57.16"
+  },
+  "now": 1735689600,
+  "order": {
+    "id": "11111111-2222-4333-8444-555555555555",
+    "owner": "0x19e7e376e7c213b7e7e7e46cc70a5dd086daff2a",
+    "slug": "diff-review",
+    "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "input": {
+      "diff": "+ console.log(token)",
+      "context": "Do not log authentication credentials."
+    },
+    "origin": "http://127.0.0.1:8875",
+    "amount": "100000",
+    "pay_to": "0x1111111111111111111111111111111111111111",
+    "network": "eip155:84532",
+    "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+    "created_at": 1735689600,
+    "quote_expires_at": 1735689900,
+    "execution": "created",
+    "payment": "required",
+    "run_key": "sell-11111111-2222-4333-8444-555555555555",
+    "protocol": "hermes-sell/0.1",
+    "mode": "testnet",
+    "order_digest": "771e57012050806600ad4bd449276821dc9b5df470796ab3ad8a9ed2ba9cc570",
+    "payment_nonce": "0x771e57012050806600ad4bd449276821dc9b5df470796ab3ad8a9ed2ba9cc570",
+    "payment_requirements": {
+      "scheme": "exact",
+      "network": "eip155:84532",
+      "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "amount": "100000",
+      "payTo": "0x1111111111111111111111111111111111111111",
+      "maxTimeoutSeconds": 180,
+      "extra": {
+        "name": "USDC",
+        "version": "2",
+        "assetTransferMethod": "eip3009"
+      }
+    },
+    "service_contract": {
+      "slug": "diff-review",
+      "name": "Diff review",
+      "description": "Provide a shareable code diff and project rules to receive a review summary and actionable findings.",
+      "amount": "100000",
+      "pay_to": "0x1111111111111111111111111111111111111111",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["diff", "context"],
+        "properties": {
+          "diff": {
+            "type": "string",
+            "title": "Diff to review",
+            "description": "Code changes that are safe to share",
+            "minLength": 1,
+            "maxLength": 16000
+          },
+          "context": {
+            "type": "string",
+            "title": "Review criteria",
+            "maxLength": 3000
+          }
+        }
+      },
+      "output_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["summary", "findings"],
+        "properties": {
+          "summary": {
+            "type": "string",
+            "maxLength": 3000
+          },
+          "findings": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "type": "string",
+              "maxLength": 1000
+            }
+          }
+        }
+      },
+      "examples": [
+        {
+          "input": {
+            "diff": "+ console.log(token)",
+            "context": "Do not log authentication credentials."
+          },
+          "output": {
+            "summary": "Check whether sensitive values could be exposed in logs.",
+            "findings": [
+              "Remove the line that logs the token or redact sensitive values."
+            ]
+          }
+        }
+      ],
+      "revision": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "network": "eip155:84532",
+      "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+    }
+  },
+  "payload": {
+    "x402Version": 2,
+    "accepted": {
+      "scheme": "exact",
+      "network": "eip155:84532",
+      "asset": "0x036CbD53842c5426634e7929541eC2318f3dCF7e",
+      "amount": "100000",
+      "payTo": "0x1111111111111111111111111111111111111111",
+      "maxTimeoutSeconds": 180,
+      "extra": {
+        "name": "USDC",
+        "version": "2",
+        "assetTransferMethod": "eip3009"
+      }
+    },
+    "resource": {
+      "url": "http://127.0.0.1:8875/v1/orders/11111111-2222-4333-8444-555555555555"
+    },
+    "payload": {
+      "authorization": {
+        "from": "0x19E7E376E7C213B7E7e7e46cc70A5dD086DAff2A",
+        "to": "0x1111111111111111111111111111111111111111",
+        "value": "100000",
+        "validAfter": "0",
+        "validBefore": "1735689780",
+        "nonce": "0x771e57012050806600ad4bd449276821dc9b5df470796ab3ad8a9ed2ba9cc570"
+      },
+      "signature": "0x11fb9f43359987a83b5c981e131f6f50b50a95049b037bcf0d832342a67ef16665810f2d0128b313a31539bf7659b9267d6b19e5c032a7509d0210b9b131ea041c"
+    }
+  }
+}
